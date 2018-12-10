@@ -77,11 +77,13 @@ export class KichenComponent implements OnInit {
 
   exportAsXLSX():void {
     this.excel=[]
+    this.data.getLiveCount().subscribe(data=>{
+      for(let i of data.result){
+        this.excel.push({DishName:i.name,Produced:i.count,Prediction:20})
+      }
+      this.excelService.exportAsExcelFile(this.excel, 'sample');
+    })
     
-    for(let i of this.orderDetails){
-      this.excel.push({DishName:i.name,Produced:i.created,Predicted:i.predicted})
-    }
     
-    this.excelService.exportAsExcelFile(this.excel, 'sample');
   }
 }

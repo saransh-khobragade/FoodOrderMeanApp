@@ -43,7 +43,7 @@ export class CustomerComponent implements OnInit {
         if (data.body.success) alert("Order placed successfuly")
       })
   
-      this.socket.emit('orderDetails',JSON.stringify(order));
+      this.socket.emit('orderDetails');
     }
     
   }
