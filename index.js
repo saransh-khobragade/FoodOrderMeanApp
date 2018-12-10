@@ -1,5 +1,6 @@
 const express = require('express')
 const app = express()
+var path = require("path");
 
 const bodyparser = require('body-parser')
 const router = require('./src/server/api/router')
@@ -24,7 +25,7 @@ console.log('server running...');
 
 app.use(express.static(__dirname + '/dist/FoodOrder'));
 
-app.get('/', function(req,res) {
+app.use('/*', function(req,res) {
     res.sendFile(path.join(__dirname+'/dist/FoodOrder/index.html'));
 });
 
