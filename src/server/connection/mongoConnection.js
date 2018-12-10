@@ -1,8 +1,8 @@
 const conn = require('mongoose')
 conn.Promise = Promise
 
-//const mongoURI='mongodb://saransh98:saransh989@ds247101.mlab.com:47101/angular6'
-const mongoURI='mongodb://localhost:27017/FoodOrder'
+const mongoURI='mongodb://<dbuser>:<dbpassword>@ds129914.mlab.com:29914/foodorder'
+//const mongoURI='mongodb://localhost:27017/FoodOrder'
 
 conn.connect(mongoURI, { useNewUrlParser: true })
 
