@@ -1,4 +1,5 @@
 const db = require('./dbMethods')
+const Menu = require('../model/menu')
 
 const express = require('express')
 const router = express.Router();

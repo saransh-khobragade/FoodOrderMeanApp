@@ -1,9 +1,8 @@
 const db = require('./dbMethods')
+const Order = require('../model/order')
 
 const express = require('express')
 const router = express.Router();
-
-const Order = require('../model/order')
 
 router.post('/setOrder', async (req, res) => {
     const { order } = req.body
