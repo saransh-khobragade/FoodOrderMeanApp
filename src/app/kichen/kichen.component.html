@@ -1,0 +1,15 @@
+<div class="row m-2">
+    <div class="col-lg-3">        <h5>Name</h5>    </div>
+    <div class="col-lg-2">        <h5>Quantity</h5>    </div>
+    <div class="col-lg-2">        <h5>Created-till-now</h5>    </div>
+    <div class="col-lg-2">        <h5>Predicted</h5>    </div>
+    <div class="col-lg-3">        <h5>Status</h5>    </div>
+</div>
+
+<div class="row m-2" *ngFor="let orderDetail of orderDetails;let i=index">
+    <div class="col-lg-3">        {{orderDetail.name}}    </div>
+    <div class="col-lg-2">        {{orderDetail.quantity}}    </div>
+    <div class="col-lg-2">        {{orderDetail.created}}   </div>
+    <div class="col-lg-2">        {{orderDetail.predicted}}   </div>
+    <div class="col-lg-3">        <button (click)="doneOrder(i,orderDetail.Id)" >Done</button>    </div>
+</div>
