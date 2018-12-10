@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { DataService } from '../data.service';
 import * as io from 'socket.io-client';
+import { ExcelService } from '../excel.service';
 
 @Component({
   selector: 'app-kichen',
@@ -13,8 +14,9 @@ export class KichenComponent implements OnInit {
   liveCount = []
   private socket;
   order:any={}
-
-  constructor(private data: DataService) {
+  excel=[]
+    
+  constructor(private data: DataService,private excelService:ExcelService) {
     this.socket = io('http://localhost:1234');
    }
 
@@ -71,5 +73,15 @@ export class KichenComponent implements OnInit {
       }
     })
   
+  }
+
+  exportAsXLSX():void {
+    this.excel=[]
+    
+    for(let i of this.orderDetails){
+      this.excel.push({DishName:i.name,Produced:i.created,Predicted:i.predicted})
+    }
+    
+    this.excelService.exportAsExcelFile(this.excel, 'sample');
   }
 }
